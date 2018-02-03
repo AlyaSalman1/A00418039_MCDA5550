@@ -12,6 +12,7 @@ public class second extends AppCompatActivity {
     EditText height;
     EditText Wight;
     double BMI;
+    EditText result;
 
 
     @Override
@@ -28,14 +29,16 @@ public class second extends AppCompatActivity {
         //Connecting attributes from design XML to variable
         height = findViewById(R.id.editText8);
         Wight = findViewById(R.id.editText9);
+        result=findViewById(R.id.editText4);
     }
 
     public void calc(View view)
     {
         double heightValue = Double.parseDouble(height.getText().toString()) ;
         double WeightValue = Double.parseDouble(Wight.getText().toString()) ;
-        BMI=WeightValue/Math.pow(heightValue, 2);
-       Toast.makeText(second.this, (int) BMI,Toast.LENGTH_LONG).show();
+        Double bmi = (WeightValue/(heightValue*heightValue));
+        System.out.print("Height is:"+heightValue+ " Weight is:"+WeightValue + " BMI value ="+bmi);
+        result.setText(Double.toString(bmi));
 
     }
 
