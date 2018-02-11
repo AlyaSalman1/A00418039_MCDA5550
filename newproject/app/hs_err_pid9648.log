@@ -1,0 +1,195 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:273), pid=9648, tid=11228
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_45-b15) (build 1.8.0_45-b15)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.45-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000155dd800):  JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=11228, stack(0x0000000016e00000,0x0000000016f00000)]
+
+Stack: [0x0000000016e00000,0x0000000016f00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x32b57a]
+
+
+Current CompileTask:
+C1:    834  119       3       sun.nio.fs.WindowsPathParser::parse (384 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000017118800 JavaThread "Thread-0" [_thread_new, id=11024, stack(0x0000000000000000,0x0000000000000000)]
+  0x0000000005153800 JavaThread "DestroyJavaVM" [_thread_blocked, id=8532, stack(0x0000000004f90000,0x0000000005090000)]
+  0x000000001560d800 JavaThread "Service Thread" daemon [_thread_blocked, id=7636, stack(0x0000000017300000,0x0000000017400000)]
+=>0x00000000155dd800 JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=11228, stack(0x0000000016e00000,0x0000000016f00000)]
+  0x00000000155b4800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=2184, stack(0x0000000016d00000,0x0000000016e00000)]
+  0x00000000155b2000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=10224, stack(0x0000000016c00000,0x0000000016d00000)]
+  0x00000000155b0000 JavaThread "Attach Listener" daemon [_thread_blocked, id=864, stack(0x0000000016b00000,0x0000000016c00000)]
+  0x00000000155af000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=8492, stack(0x0000000016a00000,0x0000000016b00000)]
+  0x000000000524a000 JavaThread "Finalizer" daemon [_thread_blocked, id=9560, stack(0x0000000016800000,0x0000000016900000)]
+  0x0000000005241000 JavaThread "Reference Handler" daemon [_thread_blocked, id=8480, stack(0x0000000016700000,0x0000000016800000)]
+
+Other Threads:
+  0x0000000015577800 VMThread [stack: 0x0000000016600000,0x0000000016700000] [id=988]
+  0x000000001560e800 WatcherThread [stack: 0x0000000017400000,0x0000000017500000] [id=5532]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 18944K, used 4038K [0x00000000feb00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 16384K, 24% used [0x00000000feb00000,0x00000000feef18f0,0x00000000ffb00000)
+  from space 2560K, 0% used [0x00000000ffd80000,0x00000000ffd80000,0x0000000100000000)
+  to   space 2560K, 0% used [0x00000000ffb00000,0x00000000ffb00000,0x00000000ffd80000)
+ ParOldGen       total 44032K, used 0K [0x00000000fc000000, 0x00000000feb00000, 0x00000000feb00000)
+  object space 44032K, 0% used [0x00000000fc000000,0x00000000fc000000,0x00000000feb00000)
+ Metaspace       used 4058K, capacity 4788K, committed 4864K, reserved 1056768K
+  class space    used 455K, capacity 496K, committed 512K, reserved 1048576K
+
+Card table byte_map: [0x0000000003150000,0x0000000003180000] byte_map_base: 0x0000000002970000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000061a24040
+ Begin Bits: [0x0000000014a10000, 0x0000000014b10000)
+ End Bits:   [0x0000000014b10000, 0x0000000014c10000)
+
+Polling page: 0x0000000000df0000
+
+CodeCache: size=245760Kb used=1284Kb max_used=1295Kb free=244475Kb
+ bounds [0x0000000005250000, 0x00000000054c0000, 0x0000000014250000]
+ total_blobs=417 nmethods=124 adapters=206
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.675 Thread 0x00000000155dd800 nmethod 117 0x000000000538d290 code [0x000000000538d3e0, 0x000000000538d530]
+Event: 0.675 Thread 0x00000000155dd800  118       3       java.lang.ref.WeakReference::<init> (6 bytes)
+Event: 0.675 Thread 0x00000000155dd800 nmethod 118 0x000000000538d590 code [0x000000000538d700, 0x000000000538d9d0]
+Event: 0.675 Thread 0x00000000155dd800  121       3       sun.nio.fs.WindowsPath::<init> (26 bytes)
+Event: 0.675 Thread 0x00000000155dd800 nmethod 121 0x000000000538db10 code [0x000000000538dc80, 0x000000000538def0]
+Event: 0.675 Thread 0x00000000155dd800  122       3       sun.nio.fs.AbstractPath::<init> (5 bytes)
+Event: 0.675 Thread 0x00000000155dd800 nmethod 122 0x000000000538e010 code [0x000000000538e160, 0x000000000538e310]
+Event: 0.675 Thread 0x00000000155dd800  120       3       java.lang.String::lastIndexOf (13 bytes)
+Event: 0.676 Thread 0x00000000155dd800 nmethod 120 0x000000000538e3d0 code [0x000000000538e540, 0x000000000538e768]
+Event: 0.676 Thread 0x00000000155dd800  119       3       sun.nio.fs.WindowsPathParser::parse (384 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (2 events):
+Event: 0.050 Thread 0x0000000005153800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000feb10158) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3627\hotspot\sr¯Õ~þËl©?
+Event: 0.050 Thread 0x0000000005153800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000feb103e8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\j
+
+Events (10 events):
+Event: 0.671 loading class java/nio/file/attribute/BasicFileAttributes
+Event: 0.671 loading class java/nio/file/attribute/BasicFileAttributes done
+Event: 0.671 loading class java/nio/file/attribute/DosFileAttributes done
+Event: 0.671 loading class sun/nio/fs/WindowsFileAttributes done
+Event: 0.671 loading class sun/nio/fs/WindowsDirectoryStream$WindowsDirectoryIterator
+Event: 0.671 loading class sun/nio/fs/WindowsDirectoryStream$WindowsDirectoryIterator done
+Event: 0.671 loading class sun/nio/fs/WindowsPath$WindowsPathWithAttributes
+Event: 0.671 loading class sun/nio/fs/BasicFileAttributesHolder
+Event: 0.671 loading class sun/nio/fs/BasicFileAttributesHolder done
+Event: 0.671 loading class sun/nio/fs/WindowsPath$WindowsPathWithAttributes done
+
+
+Dynamic libraries:
+0x00007ff6dbd50000 - 0x00007ff6dbd87000 	C:\Program Files\Java\jdk1.8.0_45\bin\java.exe
+0x00007ff9adf20000 - 0x00007ff9ae100000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff9addd0000 - 0x00007ff9ade7e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9aac70000 - 0x00007ff9aaed6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff9ab500000 - 0x00007ff9ab5a1000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff9ad980000 - 0x00007ff9ada1d000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff9ad8b0000 - 0x00007ff9ad90b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff9adcb0000 - 0x00007ff9addcf000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9ada20000 - 0x00007ff9adbaf000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff9ab350000 - 0x00007ff9ab370000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff9ad090000 - 0x00007ff9ad0b8000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff9ab1b0000 - 0x00007ff9ab343000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff9ab110000 - 0x00007ff9ab1ab000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff9aab70000 - 0x00007ff9aac66000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff985ac0000 - 0x00007ff985d29000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.16299.192_none_15c8cdae9364c23b\COMCTL32.dll
+0x00007ff9ad5a0000 - 0x00007ff9ad8a8000 	C:\WINDOWS\System32\combase.dll
+0x00007ff9ab370000 - 0x00007ff9ab3e2000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff9adbd0000 - 0x00007ff9adbfd000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000062c70000 - 0x0000000062d42000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\msvcr100.dll
+0x0000000061220000 - 0x0000000061aa3000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\server\jvm.dll
+0x00007ff9adc00000 - 0x00007ff9adc08000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff9912b0000 - 0x00007ff9912b9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff9a8440000 - 0x00007ff9a8463000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff9ad3c0000 - 0x00007ff9ad42c000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff99c070000 - 0x00007ff99c07a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff9a8410000 - 0x00007ff9a843a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff9aaa70000 - 0x00007ff9aaaba000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00000000645b0000 - 0x00000000645bf000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\verify.dll
+0x0000000062c40000 - 0x0000000062c69000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\java.dll
+0x00000000643d0000 - 0x00000000643e6000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\zip.dll
+0x00007ff9abba0000 - 0x00007ff9acfd6000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ff9acfe0000 - 0x00007ff9ad086000 	C:\WINDOWS\System32\shcore.dll
+0x00007ff9aa320000 - 0x00007ff9aaa67000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ff9ade80000 - 0x00007ff9aded1000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ff9aa300000 - 0x00007ff9aa311000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ff9aa270000 - 0x00007ff9aa2bc000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ff9aa2c0000 - 0x00007ff9aa2db000 	C:\WINDOWS\System32\profapi.dll
+0x00007ff9a9cc0000 - 0x00007ff9a9cd7000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ff9a9710000 - 0x00007ff9a9743000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ff9a9dd0000 - 0x00007ff9a9df5000 	C:\WINDOWS\SYSTEM32\bcrypt.dll
+0x00007ff9aa1a0000 - 0x00007ff9aa1c9000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ff9a9ce0000 - 0x00007ff9a9ceb000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x0000000062c20000 - 0x0000000062c3a000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\net.dll
+0x00007ff9a9b00000 - 0x00007ff9a9b66000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ff9a9890000 - 0x00007ff9a98c9000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ff9adee0000 - 0x00007ff9adee8000 	C:\WINDOWS\System32\NSI.dll
+0x00007ff9a2cf0000 - 0x00007ff9a2d06000 	C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL
+0x00007ff9a2e70000 - 0x00007ff9a2e8a000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x0000000062c00000 - 0x0000000062c11000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\nio.dll
+
+VM Arguments:
+jvm_args: -Djava.awt.headless=true -Xmx64M -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: com.google.devtools.build.android.desugar.Desugar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\5.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\6.jar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\classes\debug --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\0 --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\6.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\7.jar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\3.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\4.jar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\10.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\11.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\classes\debug --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\0.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\1.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\2.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\3.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\4.jar --classpath_entry C:\Users\Lenov
+java_class_path (initial): C:\Users\Lenovo\AppData\Local\Temp\desugar_deploy.jar7057651100229723373
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_45
+USERNAME=Lenovo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 69 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 16299 (10.0.16299.15)
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 6181144k(296336k free), swap 9457940k(3060k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.45-b02) for windows-amd64 JRE (1.8.0_45-b15), built on Apr 30 2015 12:40:44 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sat Feb 10 17:03:26 2018
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

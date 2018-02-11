@@ -14,12 +14,25 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText resultName;
+    EditText resultDOB;
+    EditText resultHealth;
+    EditText resultEmail;
+    EditText resultPass;
+    SQLiteDB helper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        resultName=(EditText)findViewById(R.id.editText);
+        resultDOB =(EditText)findViewById(R.id.editText2);
+        resultHealth =(EditText)findViewById(R.id.editText3);
+        resultEmail =(EditText)findViewById(R.id.editText8);
+        resultPass=(EditText)findViewById(R.id.editText6);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -30,24 +43,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        SQLiteDB helper=new SQLiteDB(this);
+        helper=new SQLiteDB(this);
         SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor cursor = db.query(SQLiteDB.TABLE_NAME, new String[]
-                        {"NAME","PASSWORD","HEALTH_CARD_NUMB","DATE"},
+        Cursor cursor = db.query(SQLiteDB.UserInfo, new String[]
+                        {"NAME","EMAIL","PASSWORD","HEALTH_CARD_NUM","DOB"},
                 null,null,null,null,null);
+
+
         if(cursor.moveToFirst()) {
             String name=cursor.getString(0);
-            String pass=cursor.getString(1);
-            String health=cursor.getString(2);
-            String date=cursor.getString(3);
-            EditText resultName=(EditText)findViewById(R.id.editText);
+            String pass=cursor.getString(2);
+            String health=cursor.getString(3);
+            String date=cursor.getString(4);
+            String Email=cursor.getColumnName(1);
             resultName.setText(name);
-            EditText resultDOB=(EditText)findViewById(R.id.editText2);
             resultDOB.setText(pass);
-            EditText resultHealth=(EditText)findViewById(R.id.editText3);
             resultHealth.setText(health);
-            EditText resultPass=(EditText)findViewById(R.id.editText6);
+            resultEmail.setText(Email);
             resultPass.setText(date);
+
         }
         cursor.close();
         db.close();
@@ -73,7 +87,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void click(View view)
+    public void saveUser(View view)
+    {
+        helper.Insertuser(resultName.getText().toString(),resultDOB.getText().toString(),resultEmail.getText().toString(),
+                resultHealth.getText().toString(),resultDOB.getText().toString());
+
+    }
+
+    public void goToBMI(View view)
     {
         Intent i=new Intent(this,second.class);
         startActivity(i);

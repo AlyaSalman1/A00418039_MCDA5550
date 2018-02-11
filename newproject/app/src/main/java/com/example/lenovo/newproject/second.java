@@ -1,5 +1,6 @@
 package com.example.lenovo.newproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,9 @@ public class second extends AppCompatActivity {
     EditText Wight;
     double BMI;
     EditText result;
+    SQLiteDB helper;
+
+
 
 
     @Override
@@ -24,12 +28,16 @@ public class second extends AppCompatActivity {
         if (getSupportActionBar() !=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+            helper=new SQLiteDB(this);
+
         }
 
         //Connecting attributes from design XML to variable
         height = findViewById(R.id.editText8);
         Wight = findViewById(R.id.editText9);
         result=findViewById(R.id.editText4);
+
     }
 
     public void calc(View view)
@@ -39,7 +47,16 @@ public class second extends AppCompatActivity {
         Double bmi = (WeightValue/(heightValue*heightValue));
         System.out.print("Height is:"+heightValue+ " Weight is:"+WeightValue + " BMI value ="+bmi);
         result.setText(Double.toString(bmi));
+        helper.InsertBMI(heightValue,WeightValue,bmi);
+  
+    }
+
+    public void list(View view)
+    {
+        Intent i=new Intent(this,ListAct.class);
+        startActivity(i);
 
     }
+
 
 }

@@ -1,0 +1,170 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=2028, tid=11424
+#
+# JRE version:  (8.0_45-b15) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.45-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000004fc3800):  JavaThread "Unknown thread" [_thread_in_vm, id=11424, stack(0x0000000004e60000,0x0000000004f60000)]
+
+Stack: [0x0000000004e60000,0x0000000004f60000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x32b57a]
+V  [jvm.dll+0x279873]
+V  [jvm.dll+0x27a509]
+V  [jvm.dll+0x271825]
+V  [jvm.dll+0x1606]
+V  [jvm.dll+0x3c08c2]
+V  [jvm.dll+0x3eecb2]
+V  [jvm.dll+0x3ef1bc]
+V  [jvm.dll+0x3ea7a7]
+V  [jvm.dll+0xf2cf2]
+V  [jvm.dll+0x20f0c9]
+V  [jvm.dll+0x240e0a]
+V  [jvm.dll+0x15ba41]
+C  [java.exe+0x216e]
+C  [java.exe+0xcce7]
+C  [java.exe+0xcd7b]
+C  [KERNEL32.DLL+0x11fe4]
+C  [ntdll.dll+0x6efb1]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000004fc3800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=11424, stack(0x0000000004e60000,0x0000000004f60000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 18944K, used 327K [0x00000000feb00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 16384K, 2% used [0x00000000feb00000,0x00000000feb51ec8,0x00000000ffb00000)
+  from space 2560K, 0% used [0x00000000ffd80000,0x00000000ffd80000,0x0000000100000000)
+  to   space 2560K, 0% used [0x00000000ffb00000,0x00000000ffb00000,0x00000000ffd80000)
+ ParOldGen       total 44032K, used 0K [0x00000000fc000000, 0x00000000feb00000, 0x00000000feb00000)
+  object space 44032K, 0% used [0x00000000fc000000,0x00000000fc000000,0x00000000feb00000)
+ Metaspace       used 766K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 75K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000004e10000,0x0000000004e40000] byte_map_base: 0x0000000004630000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000061a24040
+ Begin Bits: [0x0000000014880000, 0x0000000014980000)
+ End Bits:   [0x0000000014980000, 0x0000000014a80000)
+
+Polling page: 0x00000000037b0000
+
+CodeCache: size=245760Kb used=328Kb max_used=328Kb free=245431Kb
+ bounds [0x00000000050c0000, 0x0000000005330000, 0x00000000140c0000]
+ total_blobs=57 nmethods=0 adapters=37
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.056 loading class java/lang/Short
+Event: 0.056 loading class java/lang/Short done
+Event: 0.056 loading class java/lang/Integer
+Event: 0.057 loading class java/lang/Integer done
+Event: 0.057 loading class java/lang/Long
+Event: 0.057 loading class java/lang/Long done
+Event: 0.057 loading class java/lang/NullPointerException
+Event: 0.057 loading class java/lang/NullPointerException done
+Event: 0.057 loading class java/lang/ArithmeticException
+Event: 0.058 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x00007ff6dbd50000 - 0x00007ff6dbd87000 	C:\Program Files\Java\jdk1.8.0_45\bin\java.exe
+0x00007ff9adf20000 - 0x00007ff9ae100000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff9addd0000 - 0x00007ff9ade7e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9aac70000 - 0x00007ff9aaed6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff9ab500000 - 0x00007ff9ab5a1000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff9ad980000 - 0x00007ff9ada1d000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff9ad8b0000 - 0x00007ff9ad90b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff9adcb0000 - 0x00007ff9addcf000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9ada20000 - 0x00007ff9adbaf000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff9ab350000 - 0x00007ff9ab370000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff9ad090000 - 0x00007ff9ad0b8000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff9ab1b0000 - 0x00007ff9ab343000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff9ab110000 - 0x00007ff9ab1ab000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff9aab70000 - 0x00007ff9aac66000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff985ac0000 - 0x00007ff985d29000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.16299.192_none_15c8cdae9364c23b\COMCTL32.dll
+0x00007ff9ad5a0000 - 0x00007ff9ad8a8000 	C:\WINDOWS\System32\combase.dll
+0x00007ff9ab370000 - 0x00007ff9ab3e2000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff9adbd0000 - 0x00007ff9adbfd000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000062c70000 - 0x0000000062d42000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\msvcr100.dll
+0x0000000061220000 - 0x0000000061aa3000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\server\jvm.dll
+0x00007ff9adc00000 - 0x00007ff9adc08000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff9912b0000 - 0x00007ff9912b9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff9ad3c0000 - 0x00007ff9ad42c000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff9a8440000 - 0x00007ff9a8463000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff99c070000 - 0x00007ff99c07a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff9a8410000 - 0x00007ff9a843a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff9aaa70000 - 0x00007ff9aaaba000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00000000645b0000 - 0x00000000645bf000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\verify.dll
+0x0000000062c40000 - 0x0000000062c69000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\java.dll
+0x00000000643d0000 - 0x00000000643e6000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\zip.dll
+0x00007ff99acd0000 - 0x00007ff99ae98000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Djava.awt.headless=true -Xmx64M -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: com.google.devtools.build.android.desugar.Desugar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\5.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\6.jar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\6.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\7.jar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\15.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\16.jar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\8.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\9.jar --input C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\12.jar --output C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\desugar\debug\13.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\classes\debug --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\0.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\1.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\2.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\3.jar --classpath_entry C:\Users\Lenovo\AndroidStudioProjects\newproject\app\build\intermediates\transforms\stackFramesFixer\debug\4.jar 
+java_class_path (initial): C:\Users\Lenovo\AppData\Local\Temp\desugar_deploy.jar7057651100229723373
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_45
+USERNAME=Lenovo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 69 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 16299 (10.0.16299.15)
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 6181144k(447464k free), swap 9457940k(2980k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.45-b02) for windows-amd64 JRE (1.8.0_45-b15), built on Apr 30 2015 12:40:44 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sat Feb 10 17:11:34 2018
+elapsed time: 1 seconds (0d 0h 0m 1s)
+
