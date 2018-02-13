@@ -19,17 +19,18 @@ public class ListAct extends ListActivity {
     //Create dummy data until database is ready
    ArrayList<BMIResult> results= new ArrayList<>();
 
-    SQLiteDB helper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_list);
-  //      Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_list);
+       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //add to oncreate
         ListView listBMIResults=getListView();
 
+        SQLiteDB helper= new SQLiteDB(this);
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor = db.query(SQLiteDB.UserInfo, new String[]
                         {"HEIGHT","WEIGHT","BMI","DATE"},
@@ -47,6 +48,9 @@ public class ListAct extends ListActivity {
         finally {
 
         }
+        cursor.close();
+        db.close();
+
         ArrayAdapter<BMIResult>listAdapter=new ArrayAdapter<BMIResult>(
                 this,
                 android.R.layout.simple_list_item_1,
