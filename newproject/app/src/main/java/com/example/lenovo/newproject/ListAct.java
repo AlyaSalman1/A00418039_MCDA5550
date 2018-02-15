@@ -24,7 +24,7 @@ public class ListAct extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+       // setContentView(R.layout.activity_list);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //add to oncreate
@@ -32,7 +32,7 @@ public class ListAct extends ListActivity {
 
         SQLiteDB helper= new SQLiteDB(this);
         SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor cursor = db.query(SQLiteDB.UserInfo, new String[]
+        Cursor cursor = db.query(SQLiteDB.BMICal, new String[]
                         {"HEIGHT","WEIGHT","BMI","DATE"},
                 null,null,null,null,null);
 

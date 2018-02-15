@@ -29,6 +29,8 @@ public class SQLiteDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+
+
         db.execSQL("CREATE TABLE " + UserInfo + " (" + "_id INTEGER PRIMARY KEY AUTOINCREMENT, " + "NAME TEXT, " + "PASSWORD TEXT," + "HEALTH_CARD_NUM TEXT,"
                 + "EMAIL TEXT, " + "DOB TEXT);");
         db.execSQL("CREATE TABLE " + BMICal + " (" + "_id INTEGER PRIMARY KEY AUTOINCREMENT, " + "HEIGHT DOUBLE, " + "WEIGHT DOUBLE,"

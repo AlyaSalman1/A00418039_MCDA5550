@@ -16,6 +16,7 @@ public class second extends AppCompatActivity {
     double BMI;
    private EditText result;
     SQLiteDB helper;
+    private double heightValue;
 
 
     @Override
@@ -39,15 +40,27 @@ public class second extends AppCompatActivity {
 
     }
 
-    protected void calc(View view)
-    {
-        double heightValue = Double.parseDouble(height.getText().toString())/100 ;
-        double WeightValue = Double.parseDouble(Wight.getText().toString()) ;
-        Double bmi = (WeightValue/(heightValue*heightValue));
-        System.out.print("Height is:"+heightValue+ " Weight is:"+WeightValue + " BMI value ="+bmi);
-        result.setText(Double.toString(bmi));
-       displayBMI(bmi);
-        helper.InsertBMI(heightValue,WeightValue,bmi);
+    protected void calc(View view) {
+
+        double heightValue = Double.parseDouble(height.getText().toString()) / 100;
+        double WeightValue = Double.parseDouble(Wight.getText().toString());
+        Double bmi = (WeightValue / (heightValue * heightValue));
+        if (heightValue >= 2.5) {
+            height.setError("You are taller than Sultan Kösen....Enter correct height");
+            height.requestFocus();
+        }
+        else if(heightValue<=0.5)
+        {
+            height.setError("Enter correct height");
+            height.requestFocus();
+        }
+        else
+        {
+            System.out.print("Height is:" + heightValue + " Weight is:" + WeightValue + " BMI value =" + bmi);
+            result.setText(Double.toString(bmi));
+            displayBMI(bmi);
+            helper.InsertBMI(heightValue, WeightValue, bmi);
+        }
     }
     public void displayBMI(double bmi)
    {
