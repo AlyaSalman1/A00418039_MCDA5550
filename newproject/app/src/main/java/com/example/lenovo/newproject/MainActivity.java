@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         resultHealth =(EditText)findViewById(R.id.editText3);
         resultEmail =(EditText)findViewById(R.id.editText8);
         resultPass=(EditText)findViewById(R.id.editText6);
+        String emailadd = getIntent().getStringExtra("email");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -45,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
         helper=new SQLiteDB(this);
         SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor cursor = db.query(SQLiteDB.UserInfo, new String[]
-                        {"NAME","EMAIL","PASSWORD","HEALTH_CARD_NUM","DOB"},
-                null,null,null,null,null);
+//        Cursor cursor = db.query(SQLiteDB.UserInfo, new String[]
+//                        {"NAME","EMAIL","PASSWORD","HEALTH_CARD_NUM","DOB"},
+//                null,null,null,null,null);
 
+        Cursor cursor = helper.Getuser(emailadd);
 
         if(cursor.moveToFirst()) {
             String name=cursor.getString(0);
@@ -89,8 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void saveUser(View view)
     {
-        helper.Insertuser(resultName.getText().toString(),resultDOB.getText().toString(),resultEmail.getText().toString(),
+
+        helper.Updateuser(resultName.getText().toString(),resultDOB.getText().toString(),resultEmail.getText().toString(),
                 resultHealth.getText().toString(),resultDOB.getText().toString());
+        Toast.makeText(this, "Updated Sucessfully, please login", Toast.LENGTH_LONG).show();
+
 
     }
 

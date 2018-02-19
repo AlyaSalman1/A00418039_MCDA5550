@@ -49,6 +49,17 @@ public class SQLiteDB extends SQLiteOpenHelper {
         SQLiteDatabase db= this.getWritableDatabase();
         db.insert(UserInfo, null, personValues);
     }
+    public void Updateuser(String name,String pass,String Email,String hcn,String date) {
+        Date today = new Date();
+        ContentValues personValues = new ContentValues();
+        personValues.put("NAME", name);
+        personValues.put("PASSWORD", pass);
+        personValues.put("HEALTH_CARD_NUM", hcn);
+        personValues.put("EMAIL", Email);
+        personValues.put("DOB", date);
+        SQLiteDatabase db= this.getWritableDatabase();
+        db.update(UserInfo, personValues, "EMAIL = ?",new String[]{Email});
+    }
 
     public void InsertBMI(Double height,Double weight, Double BMI) {
         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.CANADA).format(new Date());
@@ -60,6 +71,29 @@ public class SQLiteDB extends SQLiteOpenHelper {
         SQLiteDatabase db= this.getWritableDatabase();
         db.insert(BMICal, null, personValues);
 
+    }
+    public void UpdatePass(String pass,String Email) {
+
+
+        ContentValues personValues = new ContentValues();
+        personValues.put("PASSWORD", pass);
+        SQLiteDatabase db= this.getWritableDatabase();
+        db.insert(UserInfo, null, personValues);
+        db.update(UserInfo,personValues,"EMAIL = ?",new String[]{Email});
+    }
+
+
+    public Cursor Getuser(String email)
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res= db.rawQuery("SELECT * FROM "+UserInfo+" WHERE EMAIL = '"+email + "'",null );
+        return res;
+    }
+    public Cursor GetPass(String email,String pass)
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res= db.rawQuery("SELECT * FROM "+UserInfo+" WHERE EMAIL = '"+ email +"' AND PASSWORD= '" + pass + "'",null );
+        return res;
     }
 
 

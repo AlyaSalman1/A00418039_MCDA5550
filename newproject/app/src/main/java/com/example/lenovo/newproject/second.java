@@ -38,12 +38,14 @@ public class second extends AppCompatActivity {
         Wight = findViewById(R.id.editText9);
         result=findViewById(R.id.editText4);
 
-    }
+}
 
     protected void calc(View view) {
 
         double heightValue = Double.parseDouble(height.getText().toString()) / 100;
         double WeightValue = Double.parseDouble(Wight.getText().toString());
+        String h=height.getText().toString();
+        String w=Wight.getText().toString();
         Double bmi = (WeightValue / (heightValue * heightValue));
         if (heightValue >= 2.5) {
             height.setError("You are taller than Sultan Kösen....Enter correct height");
@@ -53,6 +55,14 @@ public class second extends AppCompatActivity {
         {
             height.setError("Enter correct height");
             height.requestFocus();
+        }
+        else if(h.isEmpty())
+        {
+            height.setError("Enter height");
+        }
+        else if(w.isEmpty())
+        {
+            Wight.setError("Enter Weight");
         }
         else
         {

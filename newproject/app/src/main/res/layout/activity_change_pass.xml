@@ -13,10 +13,23 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Email" />
+
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter password" />
+            android:text="Enter new password" />
 
         <EditText
             android:id="@+id/editText5"
@@ -31,7 +44,7 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter password again" />
+            android:text="Enter new password again" />
 
         <EditText
             android:id="@+id/editText10"
@@ -41,7 +54,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonchange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"

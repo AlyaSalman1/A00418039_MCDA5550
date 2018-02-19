@@ -3,6 +3,7 @@ package com.example.lenovo.newproject;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -22,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,6 +33,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,12 +49,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
+    SQLiteDB db;
+String email;
+
 
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
+
             "alya.salman@smu.ca:123456", "bar@example.com:world"
     };
     /**
@@ -72,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+        db = new SQLiteDB(this);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -84,17 +92,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
                 return false;
             }
-            public void GoMain()
+            public void GoMain(View view)
             {
                 Intent i =new Intent(LoginActivity.this,MainActivity.class);
+               String s=i.getExtras().getString("email");
                 startActivity(i);
             }
-            public void ChangePass()
-            {
-                Intent i =new Intent(LoginActivity.this,ChangePass.class);
-                startActivity(i);
 
-            }
 
         });
 
@@ -168,11 +172,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView.setError(null);
         mPasswordView.setError(null);
 
-        SharedPreferences set=getSharedPreferences("PREFS",0);
 
         Handler handeler=new Handler();
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
         //password=set.getString("password","");
         boolean cancel = false;
@@ -334,12 +337,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
+            Cursor res = db.GetPass(mEmail, mPassword);
+            int length = res.getCount();
+            Log.d("Am here", Integer.toString(length));
+            if(length > 0){
+                return  true;
             }
 
             // TODO: register the new account here.
@@ -366,6 +368,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    public void ChangePass(View view)
+    {
+        Intent i =new Intent(LoginActivity.this,ChangePass.class);
+      //  i.putExtra("pass",mPasswordView.getText().toString());
+        startActivity(i);
+
+    }
+
+
+    public void Register(View view)
+    {
+        Intent i =new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(i);
     }
 }
 
