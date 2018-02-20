@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,27 +15,34 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-public class ListAct extends ListActivity {
-    //Create dummy data until database is ready
+public class ListAct extends  AppCompatActivity {
+
+
+
    ArrayList<BMIResult> results= new ArrayList<>();
-
+    ListView listView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_list);
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.content_list);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //add to oncreate
-        ListView listBMIResults=getListView();
+      // ListView listBMIResults=getListView();
+
 
         SQLiteDB helper= new SQLiteDB(this);
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor = db.query(SQLiteDB.BMICal, new String[]
                         {"HEIGHT","WEIGHT","BMI","DATE"},
                 null,null,null,null,null);
+
+        results.clear();
+
 
         try{
             while (cursor.moveToNext()){
@@ -43,6 +51,7 @@ public class ListAct extends ListActivity {
                 String WEIGHT = cursor.getString(1);
                 String HEIGHT = cursor.getString(0);
                 results.add(new BMIResult(Double.parseDouble(HEIGHT), Double.parseDouble(WEIGHT), Double.parseDouble(BMI), date));
+
             }
         }
         finally {
@@ -51,13 +60,19 @@ public class ListAct extends ListActivity {
         cursor.close();
         db.close();
 
-        ArrayAdapter<BMIResult>listAdapter=new ArrayAdapter<BMIResult>(
-                this,
-                android.R.layout.simple_list_item_1,
-                results);
-        listBMIResults.setAdapter(listAdapter);
+        MultiColAddapter adapter =  new MultiColAddapter(this,R.layout.listlayout, results);
+
+     //listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
 
     }
+    //    ArrayAdapter<BMIResult>listAdapter=new ArrayAdapter<BMIResult>(
+      //          this,
+        //        android.R.layout.simple_list_item_1,
+          //      results);
+        //listBMIResults.setAdapter(listAdapter);
+
+    //}
 
 
     public void onListItemClick(ListView listView,

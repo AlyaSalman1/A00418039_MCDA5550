@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
         helper.Updateuser(resultName.getText().toString(),resultDOB.getText().toString(),resultEmail.getText().toString(),
                 resultHealth.getText().toString(),resultDOB.getText().toString());
-        Toast.makeText(this, "Updated Sucessfully, please login", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Updated Sucessfully", Toast.LENGTH_LONG).show();
 
 
     }
