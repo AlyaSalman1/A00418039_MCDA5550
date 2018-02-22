@@ -18,5 +18,4 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <item name="list" type="id">listv</item>
 </resources>

@@ -5,34 +5,34 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="Height "
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView11"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="Weight"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView12"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="BMI"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView13"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="Date"
+        android:textSize="20sp" />
 
 </LinearLayout>

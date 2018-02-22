@@ -42,6 +42,5 @@ public void setWeight(double weight){this.weight=weight;}
 public double getResult(){
     return weight/(height*height);
 }
-    public String toString(){return  date + "\n"+ String.valueOf(getResult());}
-//public String toString(){return String.valueOf(getResult());}
+public String toString(){return String.valueOf(getResult());}
 }

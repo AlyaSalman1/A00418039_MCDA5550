@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lenovo.newproject.SummaryActivity">
+
+    <TextView
+        android:id="@+id/idtextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="51dp"
+        android:text="ID"
+        app:layout_constraintBottom_toBottomOf="@+id/weighttextView"
+        app:layout_constraintEnd_toStartOf="@+id/weighttextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/weighttextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/weighttextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="13dp"
+        android:text="WEIGHT"
+        app:layout_constraintBottom_toBottomOf="@+id/bmitextView"
+        app:layout_constraintEnd_toStartOf="@+id/datetextView"
+        app:layout_constraintStart_toEndOf="@+id/idtextView"
+        app:layout_constraintTop_toTopOf="@+id/datetextView" />
+
+    <TextView
+        android:id="@+id/datetextView"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="10dp"
+        android:text="DATE"
+        app:layout_constraintBaseline_toBaselineOf="@+id/bmitextView"
+        app:layout_constraintEnd_toStartOf="@+id/bmitextView"
+        app:layout_constraintStart_toEndOf="@+id/weighttextView" />
+
+    <TextView
+        android:id="@+id/bmitextView"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginTop="16dp"
+        android:text="BMI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/datetextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/bmiListView"
+        android:layout_width="wrap_content"
+        android:layout_height="426dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="100dp"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintStart_toStartOf="parent"></ListView>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -32,20 +32,20 @@ public class MultiColAddapter extends ArrayAdapter<BMIResult>{
             TextView BMI = (TextView) convertView.findViewById(R.id.textView11);
             TextView Date = (TextView) convertView.findViewById(R.id.textView12);
             if (H != null) {
-                String SH = String.valueOf(res.getHeight());
-                H.setText(SH);
+                double SH = Double.parseDouble(String.valueOf(res.getHeight()));
+                H.setText(SH + "\n");
             }
             if(W!=null) {
-                String SW = String.valueOf(res.getWeight());
-                H.setText(SW);
+                String SW = Double.parseDouble(String.valueOf(res.getWeight());
+                W.setText(SW + "\n");
             }
             if(BMI!=null) {
                 String SBMI= String.valueOf(res.getBmi());
-                H.setText(SBMI);
+                BMI.setText(SBMI + "\n");
             }
             if(Date!=null) {
                 String SDate= String.valueOf(res.getDate());
-                H.setText(SDate);
+                Date.setText(SDate + "\n");
             }
 
 

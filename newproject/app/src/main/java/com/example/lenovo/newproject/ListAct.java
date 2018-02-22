@@ -22,7 +22,7 @@ public class ListAct extends  AppCompatActivity {
 
 
    ArrayList<BMIResult> results= new ArrayList<>();
-    ListView listView;
+    ListView listView1;
 
 
     @Override
@@ -32,7 +32,7 @@ public class ListAct extends  AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //add to oncreate
-      // ListView listBMIResults=getListView();
+     // ListView listBMIResults=getListView();
 
 
         SQLiteDB helper= new SQLiteDB(this);
@@ -41,7 +41,7 @@ public class ListAct extends  AppCompatActivity {
                         {"HEIGHT","WEIGHT","BMI","DATE"},
                 null,null,null,null,null);
 
-        results.clear();
+        //results.clear();
 
 
         try{
@@ -55,15 +55,14 @@ public class ListAct extends  AppCompatActivity {
             }
         }
         finally {
-
+Toast
         }
         cursor.close();
         db.close();
 
         MultiColAddapter adapter =  new MultiColAddapter(this,R.layout.listlayout, results);
-
-     //listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(adapter);
+    listView1 = (ListView) findViewById(R.id.list);
+        listView1.setAdapter(adapter);
 
     }
     //    ArrayAdapter<BMIResult>listAdapter=new ArrayAdapter<BMIResult>(
