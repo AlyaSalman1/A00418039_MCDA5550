@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -22,6 +25,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText resultEmail;
     EditText resultPass;
     SQLiteDB helper;
+    private Pattern pattern;
+    private Matcher matcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +40,11 @@ public class RegisterActivity extends AppCompatActivity {
         resultHealth = (EditText) findViewById(R.id.editText3);
         resultEmail = (EditText) findViewById(R.id.editText8);
         resultPass = (EditText) findViewById(R.id.editText6);
-
-
         helper = new SQLiteDB(this);
+
+
+
+
 
     }
 
@@ -61,13 +68,22 @@ public class RegisterActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     public void saveUser(View view) {
-        if (resultName.length() <= 0) {
+        String date=resultDOB.getText().toString();
+        DateValidator hh=new DateValidator();
+
+
+            if (resultName.length() <= 0) {
             resultName.setError("This Field is required");
         }
         else if(resultDOB.length()<=0){
             resultDOB.setError("This Field is required");
+      }
+        else if((hh.validate(date) == false)){
+            resultDOB.setError("Enter Date in correct format --> 01/01/2001 ");
         }
+
         else if(resultHealth.length()<=0){
             resultHealth.setError("This Field is required");
         }

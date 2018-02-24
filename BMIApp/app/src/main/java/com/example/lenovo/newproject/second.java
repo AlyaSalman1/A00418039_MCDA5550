@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -56,11 +57,23 @@ public class second extends AppCompatActivity {
         } else if (heightValue <= 0.5) {
             height.setError("Enter correct height");
             height.requestFocus();
-        } else if (h.isEmpty()) {
-            height.setError("Enter height");
-        } else if (w.length()<=0) {
-            Wight.setError("Enter Weight");
-        } else {
+        }
+        else if (height.length()<=0 ){
+            height.setError("Enter correct height");
+            height.requestFocus();
+        }
+        else if (Wight.length()<=0){
+            Wight.setError("Enter correct height");
+            Wight.requestFocus();
+        }
+      //  else if (h.isEmpty()) {
+        //    height.setError("Enter height");
+          //  height.requestFocus();
+       //} else if (w.length()<=0) {
+         //   Wight.setError("Enter Weight");
+           // Wight.requestFocus();
+        //}
+        else {
             System.out.print("Height is:" + heightValue + " Weight is:" + WeightValue + " BMI value =" + bmi);
             result.setText(Double.toString(bmi));
             displayBMI(bmi);

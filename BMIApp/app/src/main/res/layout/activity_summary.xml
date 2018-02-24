@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/idtextView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="fill_parent"
         android:layout_marginEnd="22dp"
         android:layout_marginStart="51dp"
         android:text="ID"
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/weighttextView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="fill_parent"
         android:layout_marginBottom="2dp"
         android:layout_marginEnd="13dp"
         android:text="WEIGHT"
@@ -34,7 +34,7 @@
     <TextView
         android:id="@+id/datetextView"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="fill_parent"
         android:layout_marginEnd="10dp"
         android:text="DATE"
         app:layout_constraintBaseline_toBaselineOf="@+id/bmitextView"
@@ -44,7 +44,7 @@
     <TextView
         android:id="@+id/bmitextView"
         android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_height="fill_parent"
         android:layout_marginEnd="19dp"
         android:layout_marginTop="16dp"
         android:text="BMI"
@@ -52,12 +52,13 @@
         app:layout_constraintStart_toEndOf="@+id/datetextView"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ListView
         android:id="@+id/bmiListView"
-        android:layout_width="wrap_content"
-        android:layout_height="426dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_marginEnd="10dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="5dp"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
