@@ -41,6 +41,8 @@ public class RegisterActivity extends AppCompatActivity {
         resultEmail = (EditText) findViewById(R.id.editText8);
         resultPass = (EditText) findViewById(R.id.editText6);
         helper = new SQLiteDB(this);
+        String email=resultEmail.getText().toString();
+
 
 
 
@@ -71,24 +73,22 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void saveUser(View view) {
         String date=resultDOB.getText().toString();
+        String email=resultEmail.getText().toString();
         DateValidator hh=new DateValidator();
+        Util u=new Util();
 
-
-            if (resultName.length() <= 0) {
+        if (resultName.length() <= 0) {
             resultName.setError("This Field is required");
         }
-        else if(resultDOB.length()<=0){
-            resultDOB.setError("This Field is required");
-      }
-        else if((hh.validate(date) == false)){
+
+        else if((hh.validate(date) == false || resultDOB.length()<=0)){
             resultDOB.setError("Enter Date in correct format --> 01/01/2001 ");
         }
-
         else if(resultHealth.length()<=0){
             resultHealth.setError("This Field is required");
         }
-        else if(resultEmail.length()<=0){
-            resultEmail.setError("This Field is required");
+        else if(resultEmail.length()<=0 || !u.isValidEmailAddress(email)){
+            resultEmail.setError("Enter Email in correct format");
         }
         else if(resultHealth.length()<=0){
             resultHealth.setError("This Field is required");
