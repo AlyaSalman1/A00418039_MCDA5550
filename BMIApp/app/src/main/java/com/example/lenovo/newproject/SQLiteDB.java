@@ -123,6 +123,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     public void createtable () {
         SQLiteDatabase db = this.getWritableDatabase();
-       // db.execSQL ("create table bmical "+"(_id integer primary key autoincrement , height text, weight text, bmi text, date text)");
+
     }
 }

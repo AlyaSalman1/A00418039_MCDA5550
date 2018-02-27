@@ -14,7 +14,6 @@ public class ChangePass extends AppCompatActivity {
     EditText e1;
     EditText e2;
     EditText email;
-    String passowrd;
     SQLiteDB db;
 
     @Override

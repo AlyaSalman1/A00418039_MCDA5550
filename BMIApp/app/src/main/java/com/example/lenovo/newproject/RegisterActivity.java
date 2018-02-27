@@ -25,8 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText resultEmail;
     EditText resultPass;
     SQLiteDB helper;
-    private Pattern pattern;
-    private Matcher matcher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

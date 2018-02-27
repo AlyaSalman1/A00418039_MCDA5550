@@ -17,10 +17,9 @@ public class second extends AppCompatActivity {
 
    private EditText height;
     private EditText Wight;
-    double BMI;
    private EditText result;
     SQLiteDB helper;
-    private double heightValue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,21 +57,8 @@ public class second extends AppCompatActivity {
             height.setError("Enter correct height");
             height.requestFocus();
         }
-        else if (height.length()<=0 ){
-            height.setError("Enter correct height");
-            height.requestFocus();
-        }
-        else if (Wight.length()<=0){
-            Wight.setError("Enter correct height");
-            Wight.requestFocus();
-        }
-      //  else if (h.isEmpty()) {
-        //    height.setError("Enter height");
-          //  height.requestFocus();
-       //} else if (w.length()<=0) {
-         //   Wight.setError("Enter Weight");
-           // Wight.requestFocus();
-        //}
+
+
         else {
             System.out.print("Height is:" + heightValue + " Weight is:" + WeightValue + " BMI value =" + bmi);
             result.setText(Double.toString(bmi));
